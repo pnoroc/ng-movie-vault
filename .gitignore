@@ -40,7 +40,17 @@ Thumbs.db
 
 .nx/cache
 .nx/workspace-data
-.claude/worktrees
-.claude/settings.local.json
+.cursor/rules/nx-rules.mdc
+.github/instructions/nx.instructions.md
 
 .angular
+.claude/settings.local.json
+.claude/worktrees
+.playwright-mcp
+
+vite.config.*.timestamp*
+vitest.config.*.timestamp*
+
+.nx/polygraph
+.nx/self-healing
+.nx/migrate-runs
