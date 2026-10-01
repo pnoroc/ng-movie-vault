@@ -23,7 +23,9 @@
       "@org/mv-feature-movie-details": [
         "./packages/movies/feature-movie-details/src/index.ts"
       ],
-      "@org/mv-feature-movie-ui": ["./packages/movies/ui/src/index.ts"]
+      "@org/mv-feature-movie-ui": ["./packages/movies/ui/src/index.ts"],
+      "@org/app-layout": ["./packages/app-layout/src/index.ts"],
+      "@org/movies-models": ["./packages/movies/models/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

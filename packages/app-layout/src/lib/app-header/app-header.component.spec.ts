@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { MvFeatureMovieUi } from './mv-feature-movie-ui';
+import { AppHeaderComponent } from './app-header.component';
 
-describe('MvFeatureMovieUi', () => {
-  let component: MvFeatureMovieUi;
-  let fixture: ComponentFixture<MvFeatureMovieUi>;
+describe('AppLayout', () => {
+  let component: AppHeaderComponent;
+  let fixture: ComponentFixture<AppHeaderComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MvFeatureMovieUi],
+      imports: [AppHeaderComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(MvFeatureMovieUi);
+    fixture = TestBed.createComponent(AppHeaderComponent);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

@@ -1,0 +1,13 @@
+{
+  "name": "app-layout",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/app-layout/src",
+  "prefix": "lib",
+  "projectType": "library",
+  "tags": ["type:shell"],
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}

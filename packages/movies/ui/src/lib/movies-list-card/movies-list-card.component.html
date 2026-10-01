@@ -1,0 +1,14 @@
+@if (movie()) {
+  <section class="card" (click)="cardClick.emit()">
+    <div class="poster" style="background:#34466b">
+      <span class="rating"> ★ {{ movie()?.vote_average }}</span>
+      <span>{{ movie()?.original_title }}</span>
+    </div>
+
+    <div class="card-body">
+      <div class="card-title">{{ movie()?.name }}</div>
+      <div class="card-meta">{{ movie()?.release_date | date: 'yyyy' }} · Драма</div>
+      <div class="card-text">{{ movie()?.overview }}</div>
+    </div>
+  </section>
+}

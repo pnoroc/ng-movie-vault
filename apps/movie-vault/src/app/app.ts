@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { NxWelcome } from './nx-welcome';
+import {AppLayoutComponent} from "@org/app-layout";
 
 @Component({
-  imports: [NxWelcome, RouterModule],
+  imports: [RouterModule, AppLayoutComponent],
   selector: 'app-root',
   templateUrl: './app.html',
-  styleUrl: './app.css',
 })
 export class App {
   protected title = 'movie-vault';
