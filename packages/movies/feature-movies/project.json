@@ -1,0 +1,13 @@
+{
+  "name": "mv-feature-movies",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/movies/feature-movies/src",
+  "prefix": "lib",
+  "projectType": "library",
+  "tags": ["scope:movies type:feature"],
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}

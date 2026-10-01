@@ -1,0 +1,13 @@
+{
+  "name": "mv-feature-movie-ui",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/movies/ui/src",
+  "prefix": "lib",
+  "projectType": "library",
+  "tags": ["scope:movies type:ui"],
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "mv-movies-data",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/movies/data/src",
+  "prefix": "lib",
+  "projectType": "library",
+  "tags": ["scope:movies type:data"],
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}
