@@ -1,6 +1,10 @@
 @if (movie()) {
   <section class="card" (click)="cardClick.emit()">
     <div class="poster" style="background:#34466b">
+      @if (posterUrl()) {
+        <img [src]="posterUrl()" [alt]="movie()?.title">
+      }
+
       <span class="rating"> ★ {{ movie()?.vote_average }}</span>
       <span>{{ movie()?.original_title }}</span>
     </div>

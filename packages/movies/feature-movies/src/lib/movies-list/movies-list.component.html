@@ -1,9 +1,5 @@
 <div class="grid">
   @for (movie of movies(); track movie.id) {
-    <mv-movies-list-item [movie]="movie"/>
+    <mv-movies-list-item [movie]="movie" (cardClick)="showMovieDetails(movie)"/>
   }
-</div>
-
-<div class="more">
-  <button class="btn-outline" type="button">Загрузить ещё</button>
 </div>

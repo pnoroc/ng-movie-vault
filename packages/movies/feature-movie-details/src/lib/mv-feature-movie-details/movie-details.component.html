@@ -1,0 +1,46 @@
+<div routerLink="/" class="back">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+  Back
+</div>
+
+<article class="movie">
+  <div class="poster" role="img" aria-label="Постер фильма «Прилив»">
+    <small>POSTER 2:3 · w500</small>
+    <span>{{movie()?.title}}</span>
+  </div>
+
+  <div class="head">
+    <div class="chips">
+      <span class="chip">Драма</span>
+      <span class="chip">Семейный</span>
+    </div>
+    <h1>{{ movie()?.title }}</h1>
+    <div class="meta">
+      <span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></svg>
+        {{ movie()?.vote_average }} / 10
+      </span>
+      <span class="dot votes-dot"></span>
+      <span class="votes">{{movie()?.vote_count}} Votes</span>
+      <span class="dot votes-dot"></span>
+      <span>{{movie()?.release_date | date: 'yyyy'}}</span>
+    </div>
+  </div>
+
+  <section class="desc">
+    <h2 class="label">Overview</h2>
+    <p>{{movie()?.overview}}</p>
+  </section>
+
+  <dl class="facts">
+    <div class="fact"><dt>Release date</dt><dd>{{movie()?.release_date | date: 'd MMM yyyy'}}</dd></div>
+    <div class="fact"><dt>Rating TMDb</dt><dd>{{movie()?.vote_average}} of 10</dd></div>
+    <div class="fact"><dt>Жанры</dt><dd>Драма, Семейный</dd></div>
+    <div class="fact"><dt>Длительность</dt><dd>118 мин</dd></div>
+  </dl>
+</article>
+
+<div routerLink="/" class="back-bottom">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+  Back to all movies
+</div>

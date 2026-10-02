@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { MvFeatureMovieDetails } from './mv-feature-movie-details';
+import { MovieDetailsComponent } from './movie-details.component';
 
 describe('MvFeatureMovieDetails', () => {
-  let component: MvFeatureMovieDetails;
-  let fixture: ComponentFixture<MvFeatureMovieDetails>;
+  let component: MovieDetailsComponent;
+  let fixture: ComponentFixture<MovieDetailsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MvFeatureMovieDetails],
+      imports: [MovieDetailsComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(MvFeatureMovieDetails);
+    fixture = TestBed.createComponent(MovieDetailsComponent);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

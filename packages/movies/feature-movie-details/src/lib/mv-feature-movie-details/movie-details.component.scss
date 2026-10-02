@@ -1,0 +1,225 @@
+:host {
+
+  .page { position: relative; }
+  .backdrop {
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 360px;
+    background: var(--backdrop);
+  }
+  .content {
+    position: relative;
+    padding-top: 28px;
+    padding-bottom: 64px;
+  }
+
+  .back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 40px;
+    padding: 0 20px 0 14px;
+    border-radius: 20px;
+    border: 1px solid var(--outline);
+    background: rgba(12, 14, 19, .5);
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 28px;
+  }
+  .back:hover { border-color: var(--text); }
+
+  /* Layout: poster + info */
+  .movie {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    grid-template-areas:
+      "poster head"
+      "poster desc"
+      "poster facts";
+    grid-template-rows: auto auto 1fr;
+    column-gap: 56px;
+    row-gap: 32px;
+  }
+
+  .poster {
+    grid-area: poster;
+    aspect-ratio: 2 / 3;
+    border-radius: 12px;
+    background: #2e4f5b;
+    box-shadow: 0 24px 48px rgba(0, 0, 0, .45);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: rgba(255, 255, 255, .9);
+  }
+  .poster small { font-size: 11px; letter-spacing: .12em; color: rgba(255, 255, 255, .55); }
+  .poster span { font-family: Unbounded, sans-serif; font-size: 34px; line-height: 1.1; }
+  /* In the real app replace the div with: <img class="poster" src="..." alt="Постер: Прилив"> + object-fit: cover */
+
+  .head {
+    grid-area: head;
+    padding-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    height: 32px;
+    padding: 0 14px;
+    display: inline-flex;
+    align-items: center;
+    border-radius: 8px;
+    border: 1px solid var(--outline);
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .head h1 {
+    margin: 0;
+    font-family: Unbounded, sans-serif;
+    font-size: 56px;
+    line-height: 1.05;
+  }
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px 20px;
+    font-size: 15px;
+    color: var(--soft);
+  }
+  .rating {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 40px;
+    padding: 0 16px;
+    border-radius: 20px;
+    background: var(--accent);
+    color: var(--on-accent);
+    font-weight: 700;
+  }
+  .dot { width: 4px; height: 4px; border-radius: 2px; background: var(--outline); }
+
+  .desc { grid-area: desc; max-width: 760px; margin-top: 16px; }
+  .label {
+    margin: 0 0 10px;
+    font-size: 13px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .desc p { margin: 0; font-size: 18px; line-height: 1.65; color: var(--body); }
+
+  .facts {
+    grid-area: facts;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    max-width: 900px;
+    margin: 0;
+  }
+  .fact {
+    padding: 16px;
+    border-radius: 12px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .fact dt { font-size: 12px; color: var(--muted); }
+  .fact dd { margin: 0; font-size: 16px; font-weight: 700; }
+
+  .back-bottom { display: none; }
+
+  /* Tablet */
+  @media (max-width: 1023px) {
+    .container { padding: 0 32px; }
+    .backdrop { height: 300px; }
+    .content { padding-top: 24px; padding-bottom: 48px; }
+    .back { height: 44px; border-radius: 22px; }
+    .movie {
+      grid-template-columns: 260px 1fr;
+      grid-template-areas:
+        "poster head"
+        "desc desc"
+        "facts facts";
+      grid-template-rows: auto;
+      column-gap: 32px;
+      row-gap: 28px;
+    }
+    .poster { padding: 16px; }
+    .poster span { font-size: 26px; }
+    .head { padding-top: 12px; gap: 18px; }
+    .head h1 { font-size: 40px; }
+    .desc { max-width: none; margin-top: 0; }
+    .desc p { font-size: 17px; }
+    .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; max-width: none; }
+  }
+
+  /* Mobile */
+  @media (max-width: 767px) {
+    .container { padding: 0 20px; }
+    .header .container { height: 56px; }
+    .logo-text { font-size: 16px; }
+    .backdrop { height: 330px; }
+    .content { padding-top: 16px; padding-bottom: 40px; }
+    .back { margin-bottom: 12px; }
+    .movie {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "poster"
+        "head"
+        "desc"
+        "facts";
+      row-gap: 20px;
+    }
+    .poster { width: 200px; justify-self: center; padding: 14px; }
+    .poster span { font-size: 22px; }
+    .head { padding-top: 4px; align-items: center; text-align: center; gap: 12px; }
+    .head h1 { font-size: 28px; }
+    .chips { justify-content: center; order: 3; }
+    .meta { justify-content: center; font-size: 14px; gap: 8px 12px; }
+    .rating { height: 32px; padding: 0 12px; }
+    .meta .votes, .meta .votes-dot { display: none; }
+    .desc p { font-size: 16px; line-height: 1.6; }
+    .label { font-size: 12px; margin-bottom: 8px; }
+
+    /* facts become a simple list */
+    .facts {
+      grid-template-columns: 1fr;
+      gap: 0;
+      border-radius: 12px;
+      background: var(--card);
+      border: 1px solid var(--line);
+    }
+    .fact {
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 14px 16px;
+      border: 0;
+      border-bottom: 1px solid var(--line);
+      border-radius: 0;
+      background: none;
+    }
+    .fact:last-child { border-bottom: 0; }
+    .fact dt { font-size: 14px; }
+    .fact dd { font-size: 14px; }
+
+    .back-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      height: 48px;
+      margin-top: 24px;
+      border-radius: 24px;
+      border: 1px solid var(--outline);
+      color: var(--accent);
+      font-size: 15px;
+      font-weight: 700;
+    }
+  }
+}
