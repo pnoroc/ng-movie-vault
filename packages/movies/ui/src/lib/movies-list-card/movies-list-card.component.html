@@ -1,18 +1,11 @@
 @if (movie()) {
   <section class="card" (click)="cardClick.emit()">
-    <div class="poster" style="background:#34466b">
-      @if (posterUrl()) {
-        <img [src]="posterUrl()" [alt]="movie()?.title">
-      }
-
-      <span class="rating"> ★ {{ movie()?.vote_average }}</span>
-      <span>{{ movie()?.original_title }}</span>
-    </div>
+    <mv-movie-poster [movie]="movie()"/>
 
     <div class="card-body">
-      <div class="card-title">{{ movie()?.name }}</div>
-      <div class="card-meta">{{ movie()?.release_date | date: 'yyyy' }} · Драма</div>
-      <div class="card-text">{{ movie()?.overview }}</div>
+      <div class="card-title">{{ movie().title }}</div>
+      <div class="card-meta">{{ movie().release_date | date: 'yyyy' }} · {{genreNames()}}</div>
+      <div class="card-text">{{ movie().overview }}</div>
     </div>
   </section>
 }

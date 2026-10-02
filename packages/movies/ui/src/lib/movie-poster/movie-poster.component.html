@@ -1,0 +1,7 @@
+<div class="poster" style="background:#34466b">
+  @if (posterUrl()) {
+    <img [ngSrc]="posterUrl()" fill [alt]="movie()?.title">
+  }
+
+  <span class="rating"> ★ {{ movie()?.vote_average | number: '1.0-1' }}</span>
+</div>

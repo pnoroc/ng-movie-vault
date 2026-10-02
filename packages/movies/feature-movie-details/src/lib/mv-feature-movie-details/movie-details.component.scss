@@ -1,5 +1,4 @@
 :host {
-
   .page { position: relative; }
   .backdrop {
     position: absolute;
@@ -47,19 +46,16 @@
     border-radius: 12px;
     background: #2e4f5b;
     box-shadow: 0 24px 48px rgba(0, 0, 0, .45);
-    padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     color: rgba(255, 255, 255, .9);
+    max-height: 450px;
   }
   .poster small { font-size: 11px; letter-spacing: .12em; color: rgba(255, 255, 255, .55); }
-  .poster span { font-family: Unbounded, sans-serif; font-size: 34px; line-height: 1.1; }
-  /* In the real app replace the div with: <img class="poster" src="..." alt="Постер: Прилив"> + object-fit: cover */
 
   .head {
     grid-area: head;
-    padding-top: 24px;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -150,8 +146,6 @@
       column-gap: 32px;
       row-gap: 28px;
     }
-    .poster { padding: 16px; }
-    .poster span { font-size: 26px; }
     .head { padding-top: 12px; gap: 18px; }
     .head h1 { font-size: 40px; }
     .desc { max-width: none; margin-top: 0; }
@@ -176,8 +170,7 @@
         "facts";
       row-gap: 20px;
     }
-    .poster { width: 200px; justify-self: center; padding: 14px; }
-    .poster span { font-size: 22px; }
+    .poster { width: 200px; justify-self: center; }
     .head { padding-top: 4px; align-items: center; text-align: center; gap: 12px; }
     .head h1 { font-size: 28px; }
     .chips { justify-content: center; order: 3; }

@@ -21,4 +21,8 @@ export class MoviesPageComponent {
   previousPage() {
     this.moviesService.setPreviousPage();
   }
+
+  searchMovies(searchInp: string) {
+    this.moviesService.setSearchQuery(searchInp);
+  }
 }

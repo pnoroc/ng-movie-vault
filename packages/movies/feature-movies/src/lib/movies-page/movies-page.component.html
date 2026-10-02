@@ -1,4 +1,9 @@
-<mv-search-autocomplete />
+<mv-search-autocomplete (search)="searchMovies($event)" />
+
+<div class="title-row">
+  <h1>Popular Movies</h1>
+  <span>Page {{moviesService.page()}} · {{movies()?.length}} movies</span>
+</div>
 
 <mv-movies-list [movies]="movies()" />
 

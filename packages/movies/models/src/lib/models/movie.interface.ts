@@ -1,3 +1,5 @@
+import { MovieGenre } from './movie-genre.interface';
+
 export interface Movie {
   id: number;
   description?: string;
@@ -19,4 +21,5 @@ export interface Movie {
   video?: boolean;
   vote_average?: number;
   vote_count?: number;
+  genres?: MovieGenre[];
 }

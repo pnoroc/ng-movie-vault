@@ -1,15 +1,16 @@
-import { Component, input, InputSignal, model } from '@angular/core';
+import { Component, computed, input, InputSignal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Movie } from '@org/movies-models';
-import { DatePipe } from '@angular/common';
+import { DatePipe, DecimalPipe } from '@angular/common';
+import { MoviePosterComponent } from '@org/mv-feature-movie-ui';
 
 @Component({
   selector: 'mv-feature-movie-details',
-  imports: [RouterLink, DatePipe],
+  imports: [RouterLink, DatePipe, MoviePosterComponent, DecimalPipe],
   templateUrl: './movie-details.component.html',
   styleUrl: './movie-details.component.scss',
 })
 export class MovieDetailsComponent {
   movie: InputSignal<Movie | undefined> = input<Movie | undefined>();
-  protected readonly model = model;
+  genres = computed(() => this.movie()?.genres?.map((genre) => genre.name));
 }

@@ -1,24 +1,33 @@
-import { Component, computed, inject, input, InputSignal, output } from '@angular/core';
+import {
+  Component,
+  computed,
+  inject,
+  input,
+  InputSignal,
+  output,
+} from '@angular/core';
 import { Movie } from '@org/movies-models';
 import { DatePipe } from '@angular/common';
-import { TMDB_CONFIG } from '@org/mv-movies-data';
+import { MoviesService } from '@org/mv-movies-data';
+import { MoviePosterComponent } from '../movie-poster/movie-poster.component';
 
 @Component({
   selector: 'mv-movies-list-item',
-  imports: [DatePipe],
+  imports: [DatePipe, MoviePosterComponent],
   templateUrl: './movies-list-card.component.html',
   styleUrl: './movies-list-card.component.scss',
 })
 export class MoviesListCardComponent {
-  private readonly baseImageUrl = inject(TMDB_CONFIG).imageUrl;
+  private readonly moviesService = inject(MoviesService);
 
-  movie: InputSignal<Movie | undefined> = input<Movie>();
+  movie: InputSignal<Movie> = input.required<Movie>();
   cardClick = output<void>();
 
-  posterUrl = computed(() => {
-    if (!this.movie()) {
-      return '';
+  genreNames = computed(() => {
+    if (this.movie()?.genre_ids?.length) {
+      return this.moviesService.genres()?.find((genre) => this.movie().genre_ids?.includes(genre.id))?.name;
     }
-    return this.baseImageUrl + this.movie()?.poster_path;
+
+    return '';
   });
 }
