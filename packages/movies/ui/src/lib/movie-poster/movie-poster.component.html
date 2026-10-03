@@ -1,6 +1,6 @@
 <div class="poster" style="background:#34466b">
   @if (posterUrl()) {
-    <img [ngSrc]="posterUrl()" fill [alt]="movie()?.title">
+    <img [ngSrc]="posterUrl()" fill priority [alt]="movie()?.title">
   }
 
   <mv-rating-badge [rating]="movie()?.vote_average" />

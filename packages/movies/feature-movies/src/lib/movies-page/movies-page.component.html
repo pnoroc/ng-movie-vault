@@ -2,15 +2,11 @@
 
 <div class="title-row">
   <h1>Popular Movies</h1>
-  <span>Page {{moviesService.page()}} · {{movies()?.length}} movies</span>
+  <span>{{movies()?.length}} movies</span>
 </div>
 
-<mv-movies-list [movies]="movies()" />
+<mv-movies-list [movies]="movies()" (cardClick)="showMovieDetails($event)" />
 
 <div class="more gap-4">
-  @if (moviesService.page() > 1) {
-    <button class="btn-outline" type="button" (click)="previousPage()">Prev</button>
-  }
-
-  <button class="btn-outline" type="button" (click)="nextPage()">Next</button>
+  <button class="btn-outline" type="button" (click)="showMoreMovies()">More</button>
 </div>

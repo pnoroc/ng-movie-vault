@@ -1,12 +1,17 @@
-import { computed, inject, Injectable, signal } from '@angular/core';
+import { computed, effect, inject, Injectable, signal } from '@angular/core';
 import {
   HttpClient,
+  HttpParams,
   httpResource,
   HttpResourceRef,
 } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { Movie, MovieHttpResponse } from '@org/movies-models';
-import { MovieGenre } from '@org/movies-models';
+import { finalize, Observable, take } from 'rxjs';
+import {
+  Movie,
+  MovieGenre,
+  MovieGenresHttpResponse,
+  MovieHttpResponse,
+} from '@org/movies-models';
 
 @Injectable({
   providedIn: 'root',
@@ -16,38 +21,54 @@ export class MoviesService {
   private readonly http = inject(HttpClient);
 
   page = signal<number>(1);
-  search = signal<string | undefined>(undefined);
+  movies = signal<Movie[]>([]);
+  isLoading = signal<boolean>(false);
+  httpError = signal<unknown>(null); // consider moving to a global error handler
 
-  moviesResource: HttpResourceRef<MovieHttpResponse | undefined> = httpResource<
-    MovieHttpResponse | undefined
-  >(() => `${this.baseUrl}/movie/popular?page=${this.page()}`);
+  constructor() {
+    effect(() => {
+      this.getPopularMovies(this.page());
+    });
+  }
 
-  searchMoviesResource = httpResource<MovieHttpResponse | undefined>(
-    () => `${this.baseUrl}/search/movie?query=${this.search()}`
+  genresResource = httpResource<MovieGenresHttpResponse | undefined>(
+    () => `${this.baseUrl}/genre/movie/list`,
   );
-
-  movies = computed(() => {
-    return !!this.search() ? this.searchMoviesResource.value()?.results : this.moviesResource.value()?.results;
-  });
-
-  genresResource = httpResource<
-    (MovieHttpResponse & { genres: MovieGenre[] }) | undefined
-  >(() => `${this.baseUrl}/genre/movie/list`);
   genres = computed(() => this.genresResource.value()?.genres);
-
-  setNextPage() {
-    this.page.update((page) => page + 1);
-  }
-
-  setPreviousPage() {
-    this.page.update((page) => (page - 1 > 0 ? page - 1 : 1));
-  }
-
-  setSearchQuery(query: string = '') {
-    this.search.set(query);
-  }
 
   getMovieDetails(id: string): Observable<Movie> {
     return this.http.get<Movie>(`${this.baseUrl}/movie/${id}`);
+  }
+
+  getPopularMovies(page: number) {
+    const params = new HttpParams({
+      fromObject: { page },
+    });
+    this.isLoading.set(true);
+
+    return this.http
+      .get<MovieHttpResponse>(`${this.baseUrl}/movie/popular`, { params })
+      .pipe(
+        take(1),
+        finalize(() => this.isLoading.set(false)),
+      )
+      .subscribe({
+        next: (response: MovieHttpResponse) => {
+          this.movies.update((movies) => [...movies, ...response.results]);
+        },
+        error: (err) => this.httpError.set(err),
+      });
+  }
+
+  searchMovies(query: string = '') {
+    this.isLoading.set(true);
+
+    return this.http
+      .get(`${this.baseUrl}/search/movie?query=${query}`)
+      .pipe(finalize(() => this.isLoading.set(false)));
+  }
+
+  showMore() {
+    this.page.update((page) => page + 1);
   }
 }

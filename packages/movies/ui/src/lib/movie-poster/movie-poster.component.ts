@@ -1,13 +1,13 @@
 import { Component, computed, inject, input, InputSignal } from '@angular/core';
 import { Movie } from '@org/movies-models';
 import { TMDB_CONFIG } from '@org/mv-movies-data';
-import { DecimalPipe, NgOptimizedImage } from '@angular/common';
+import { NgOptimizedImage } from '@angular/common';
 import { RatingBadgeComponent } from '../rating-badge/rating-badge.component';
 
 @Component({
   selector: 'mv-movie-poster',
   templateUrl: './movie-poster.component.html',
-  imports: [NgOptimizedImage, DecimalPipe, RatingBadgeComponent],
+  imports: [NgOptimizedImage, RatingBadgeComponent],
   styleUrls: ['./movie-poster.component.scss'],
 })
 export class MoviePosterComponent {

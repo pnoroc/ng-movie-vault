@@ -3,6 +3,7 @@ import { SearchAutocompleteComponent } from '@org/mv-feature-movie-ui';
 import { MoviesListComponent } from '../movies-list/movies-list.component';
 import { MoviesService } from '@org/mv-movies-data';
 import { Movie } from '@org/movies-models';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'mv-movies-page',
@@ -11,18 +12,20 @@ import { Movie } from '@org/movies-models';
   styleUrl: './movies-page.component.scss',
 })
 export class MoviesPageComponent {
-  protected readonly moviesService = inject(MoviesService);
+  private readonly router = inject(Router);
+  private readonly moviesService = inject(MoviesService);
 
   movies: Signal<Movie[] | undefined> = this.moviesService.movies;
 
-  nextPage() {
-    this.moviesService.setNextPage();
-  }
-  previousPage() {
-    this.moviesService.setPreviousPage();
+  showMoreMovies() {
+    this.moviesService.showMore();
   }
 
   searchMovies(searchInp: string) {
-    this.moviesService.setSearchQuery(searchInp);
+    // this.moviesService.setSearchQuery(searchInp);
+  }
+
+  showMovieDetails(movie: Movie): void {
+    this.router.navigate(['/movies', movie.id]);
   }
 }

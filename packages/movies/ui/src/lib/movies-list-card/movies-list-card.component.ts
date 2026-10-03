@@ -12,7 +12,7 @@ import { MoviesService } from '@org/mv-movies-data';
 import { MoviePosterComponent } from '../movie-poster/movie-poster.component';
 
 @Component({
-  selector: 'mv-movies-list-item',
+  selector: 'mv-movies-list-card',
   imports: [DatePipe, MoviePosterComponent],
   templateUrl: './movies-list-card.component.html',
   styleUrl: './movies-list-card.component.scss',
