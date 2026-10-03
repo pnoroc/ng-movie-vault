@@ -3,5 +3,5 @@
     <img [ngSrc]="posterUrl()" fill [alt]="movie()?.title">
   }
 
-  <span class="rating"> ★ {{ movie()?.vote_average | number: '1.0-1' }}</span>
+  <mv-rating-badge [rating]="movie()?.vote_average" />
 </div>

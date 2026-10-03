@@ -1,0 +1,17 @@
+:root {
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    height: 32px;
+    padding: 0 14px;
+    display: inline-flex;
+    align-items: center;
+    border-radius: 8px;
+    border: 1px solid var(--outline);
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  @media (max-width: 767px) {
+    .chips { justify-content: center; order: 3; }
+  }
+}

@@ -20,7 +20,10 @@
             "input": "apps/movie-vault/public"
           }
         ],
-        "styles": ["apps/movie-vault/src/styles.scss"]
+        "styles": [
+          "apps/movie-vault/src/styles.scss",
+          "node_modules/tailwindcss/index.css"
+        ]
       },
       "configurations": {
         "production": {

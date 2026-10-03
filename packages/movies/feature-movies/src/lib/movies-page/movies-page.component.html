@@ -7,10 +7,10 @@
 
 <mv-movies-list [movies]="movies()" />
 
-<div class="more">
+<div class="more gap-4">
   @if (moviesService.page() > 1) {
     <button class="btn-outline" type="button" (click)="previousPage()">Prev</button>
   }
 
-  <button class="btn-outline ml-1" type="button" (click)="nextPage()">Next</button>
+  <button class="btn-outline" type="button" (click)="nextPage()">Next</button>
 </div>
