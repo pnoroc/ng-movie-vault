@@ -1,14 +1,27 @@
-import {Component, output } from "@angular/core";
+import { Component, input, output } from '@angular/core';
 
 @Component({
-  selector: "mv-search-autocomplete",
-  templateUrl: "./search-autocomplete.component.html",
-  styleUrls: ["./search-autocomplete.component.scss"]
+  selector: 'mv-search-autocomplete',
+  templateUrl: './search-autocomplete.component.html',
+  styleUrls: ['./search-autocomplete.component.scss'],
 })
 export class SearchAutocompleteComponent {
-  search = output<string>()
+  /** Current search term, so the field shows it again when the page is re-created. */
+  query = input('');
 
-  searchQuery(searchInp: string = '') {
-    this.search.emit(searchInp);
+  /** Fired on "Search" click or Enter. */
+  submitted = output<string>();
+
+  /** Fired when the field becomes empty (text deleted or native clear button). */
+  cleared = output<void>();
+
+  submit(value: string): void {
+    this.submitted.emit(value);
+  }
+
+  onInput(value: string): void {
+    if (!value.trim()) {
+      this.cleared.emit();
+    }
   }
 }

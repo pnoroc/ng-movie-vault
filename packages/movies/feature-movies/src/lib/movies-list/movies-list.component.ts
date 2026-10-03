@@ -1,6 +1,7 @@
-import { Component, input, InputSignal, output } from '@angular/core';
+import { Component, inject, input, InputSignal, output } from '@angular/core';
 import { MoviesListCardComponent } from '@org/mv-feature-movie-ui';
 import { Movie } from '@org/movies-models';
+import { MoviesService } from '@org/mv-movies-data';
 
 @Component({
   selector: 'mv-movies-list',
@@ -9,7 +10,10 @@ import { Movie } from '@org/movies-models';
   styleUrl: './movies-list.component.scss',
 })
 export class MoviesListComponent {
+  private readonly moviesService = inject(MoviesService);
+
   movies: InputSignal<Movie[] | undefined> = input<Movie[] | undefined>([]);
+  genres = this.moviesService.genres;
 
   cardClick = output<Movie>();
 

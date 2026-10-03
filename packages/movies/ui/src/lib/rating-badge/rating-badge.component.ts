@@ -1,4 +1,4 @@
-import { Component, input, InputSignal, output } from '@angular/core';
+import { Component, input, InputSignal } from '@angular/core';
 import { DecimalPipe } from '@angular/common';
 
 @Component({

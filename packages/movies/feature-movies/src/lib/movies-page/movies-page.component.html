@@ -1,12 +1,32 @@
-<mv-search-autocomplete (search)="searchMovies($event)" />
+<mv-search-autocomplete
+  [query]="moviesService.query()"
+  (submitted)="searchMovies($event)"
+  (cleared)="clearSearch()"
+/>
 
 <div class="title-row">
-  <h1>Popular Movies</h1>
-  <span>{{movies()?.length}} movies</span>
+  <h1>{{ heading() }}</h1>
+  <span>{{ moviesService.movies().length }} movies</span>
 </div>
 
-<mv-movies-list [movies]="movies()" (cardClick)="showMovieDetails($event)" />
+@if (moviesService.error(); as error) {
+  <mv-error-box [error]="error" (retryCLick)="retry()"/>
+} @else if (moviesService.isEmpty()) {
+  <p class="py-16 text-center text-[var(--muted)]">
+    @if (moviesService.query()) {
+      No movies found for “{{ moviesService.query() }}”.
+    } @else {
+      No movies to show.
+    }
+  </p>
+}
+
+<mv-movies-list [movies]="moviesService.movies()" (cardClick)="showMovieDetails($event)" />
 
 <div class="more gap-4">
-  <button class="btn-outline" type="button" (click)="showMoreMovies()">More</button>
+  @if (moviesService.loading()) {
+    <mv-loading-placeholder />
+  } @else if (moviesService.hasMore()) {
+    <button class="btn-outline" type="button" (click)="showMoreMovies()">More</button>
+  }
 </div>

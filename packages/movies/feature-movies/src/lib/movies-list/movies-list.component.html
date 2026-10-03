@@ -1,5 +1,5 @@
 <div class="grid">
   @for (movie of movies(); track movie.id) {
-    <mv-movies-list-card [movie]="movie" (cardClick)="handleCardClick(movie)"/>
+    <mv-movies-list-card [movie]="movie" [genres]="genres()" (cardClick)="handleCardClick(movie)"/>
   }
 </div>

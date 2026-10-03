@@ -9,9 +9,13 @@
     <input
       #searchInp
       id="q"
+      type="search"
+      autocomplete="off"
       placeholder="Example, «The Terminator»"
-      (keydown.enter)="searchQuery(searchInp.value)"
+      [value]="query()"
+      (input)="onInput(searchInp.value)"
+      (keydown.enter)="submit(searchInp.value)"
     />
   </div>
-  <button class="btn" (click)="searchQuery(searchInp.value)">Search</button>
+  <button class="btn" type="button" (click)="submit(searchInp.value)">Search</button>
 </section>
