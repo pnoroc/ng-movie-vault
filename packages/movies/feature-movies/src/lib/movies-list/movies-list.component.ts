@@ -7,7 +7,6 @@ import { MoviesService } from '@org/mv-movies-data';
   selector: 'mv-movies-list',
   imports: [MoviesListCardComponent],
   templateUrl: './movies-list.component.html',
-  styleUrl: './movies-list.component.scss',
 })
 export class MoviesListComponent {
   private readonly moviesService = inject(MoviesService);

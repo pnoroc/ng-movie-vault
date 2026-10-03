@@ -1,18 +1,18 @@
-<mv-search-autocomplete
+<mv-search-field
   [query]="moviesService.query()"
   (submitted)="searchMovies($event)"
   (cleared)="clearSearch()"
 />
 
-<div class="title-row">
-  <h1>{{ heading() }}</h1>
-  <span>{{ moviesService.movies().length }} movies</span>
+<div class="mb-6 flex items-baseline justify-between gap-4">
+  <h1 class="font-display text-xl md:text-2xl lg:text-[28px]">{{ heading() }}</h1>
+  <span class="text-sm text-muted max-md:hidden">{{ moviesService.movies().length }} movies</span>
 </div>
 
 @if (moviesService.error(); as error) {
   <mv-error-box [error]="error" (retryCLick)="retry()"/>
 } @else if (moviesService.isEmpty()) {
-  <p class="py-16 text-center text-[var(--muted)]">
+  <p class="py-16 text-center text-muted">
     @if (moviesService.query()) {
       No movies found for “{{ moviesService.query() }}”.
     } @else {
@@ -23,7 +23,7 @@
 
 <mv-movies-list [movies]="moviesService.movies()" (cardClick)="showMovieDetails($event)" />
 
-<div class="more gap-4">
+<div class="flex justify-center gap-4 pt-10 pb-14">
   @if (moviesService.loading()) {
     <mv-loading-placeholder />
   } @else if (moviesService.hasMore()) {

@@ -1,4 +1,4 @@
-<div routerLink="/" class="back mt-4">
+<div routerLink="/" class="mt-4 mb-3 inline-flex h-11 items-center gap-2 rounded-full border border-outline bg-page/50 pr-5 pl-3.5 text-sm font-bold hover:border-fg md:mb-7 lg:h-10">
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
        stroke-linecap="round" stroke-linejoin="round">
     <path d="M19 12H5M11 6l-6 6 6 6"/>
@@ -6,54 +6,54 @@
   Back
 </div>
 
-<article class="movie">
-  <div class="poster" role="img" aria-label="Poster">
+<article class="grid grid-cols-1 gap-y-5 md:grid-cols-[260px_1fr] md:gap-x-8 md:gap-y-7 lg:grid-cols-[340px_1fr] lg:grid-rows-[auto_auto_1fr] lg:gap-x-14 lg:gap-y-8">
+  <div class="aspect-2/3 max-h-[450px] max-md:w-60 max-md:justify-self-center lg:row-span-3" role="img" aria-label="Poster">
     <mv-movie-poster [movie]="movie()"/>
   </div>
 
-  <section class="head">
-    <div class="chips">
+  <section class="flex flex-col items-center gap-3 pt-1 text-center md:items-stretch md:gap-4.5 md:pt-3 md:text-start lg:gap-5 lg:pt-0">
+    <div class="order-3 flex flex-wrap justify-center gap-2 md:order-none md:justify-start">
       @for (genre of genres(); track genre) {
-        <span class="chip">{{ genre }}</span>
+        <span class="inline-flex h-8 items-center rounded-lg border border-outline px-3.5 text-[13px] font-semibold">{{ genre }}</span>
       }
     </div>
 
-    <h1>{{ movie()?.title }}</h1>
-    <div class="meta">
+    <h1 class="font-display text-[28px] leading-[1.05] md:text-[40px] lg:text-[56px]">{{ movie()?.title }}</h1>
+    <div class="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-sm text-soft md:justify-start md:gap-x-5 md:gap-y-3 md:text-[15px]">
       <span class="flex items-center gap-1">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path
           d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></svg>
         {{ movie()?.vote_average | number: '1.0-1' }} / 10
       </span>
-      <span class="dot votes-dot"></span>
-      <span class="votes">{{ movie()?.vote_count }} Votes</span>
-      <span class="dot votes-dot"></span>
+      <span class="size-1 rounded-xs bg-outline max-md:hidden"></span>
+      <span class="max-md:hidden">{{ movie()?.vote_count }} Votes</span>
+      <span class="size-1 rounded-xs bg-outline max-md:hidden"></span>
       <span>{{ movie()?.release_date | date: 'yyyy' }}</span>
     </div>
   </section>
 
-  <section class="desc">
-    <h2 class="label">Overview</h2>
-    <p>{{ movie()?.overview }}</p>
+  <section class="md:col-span-2 lg:col-span-1 lg:mt-4 lg:max-w-[760px]">
+    <h2 class="mb-2.5 text-[13px] tracking-widest text-muted uppercase">Overview</h2>
+    <p class="text-base/[1.6] md:text-[17px]/[1.65] lg:text-lg/[1.65]">{{ movie()?.overview }}</p>
   </section>
 
-  <dl class="facts">
-    <div class="fact">
-      <dt>Release date</dt>
-      <dd>{{ movie()?.release_date | date: 'd MMM yyyy' }}</dd>
+  <dl class="grid grid-cols-1 divide-y divide-line rounded-xl border border-line bg-card md:col-span-2 md:grid-cols-2 md:gap-3 md:divide-y-0 md:rounded-none md:border-0 md:bg-transparent lg:col-span-1 lg:max-w-[900px] lg:grid-cols-4 lg:gap-4">
+    <div class="flex justify-between gap-1.5 px-4 py-3.5 md:flex-col md:justify-start md:rounded-xl md:border md:border-line md:bg-card md:p-4">
+      <dt class="text-sm text-muted md:text-xs">Release date</dt>
+      <dd class="text-sm font-bold md:text-base">{{ movie()?.release_date | date: 'd MMM yyyy' }}</dd>
     </div>
-    <div class="fact">
-      <dt>Rating TMDb</dt>
-      <dd>{{ movie()?.vote_average  | number: '1.0-1' }} of 10</dd>
+    <div class="flex justify-between gap-1.5 px-4 py-3.5 md:flex-col md:justify-start md:rounded-xl md:border md:border-line md:bg-card md:p-4">
+      <dt class="text-sm text-muted md:text-xs">Rating TMDb</dt>
+      <dd class="text-sm font-bold md:text-base">{{ movie()?.vote_average  | number: '1.0-1' }} of 10</dd>
     </div>
-    <div class="fact">
-      <dt>Genres</dt>
-      <dd>{{ genres()?.join(', ') }}</dd>
+    <div class="flex justify-between gap-1.5 px-4 py-3.5 md:flex-col md:justify-start md:rounded-xl md:border md:border-line md:bg-card md:p-4">
+      <dt class="text-sm text-muted md:text-xs">Genres</dt>
+      <dd class="text-sm font-bold md:text-base">{{ genres()?.join(', ') }}</dd>
     </div>
   </dl>
 </article>
 
-<div routerLink="/" class="back-bottom">
+<div routerLink="/" class="mt-6 flex h-12 items-center justify-center gap-2 rounded-full border border-outline text-[15px] font-bold text-accent md:hidden">
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
        stroke-linecap="round" stroke-linejoin="round">
     <path d="M19 12H5M11 6l-6 6 6 6"/>

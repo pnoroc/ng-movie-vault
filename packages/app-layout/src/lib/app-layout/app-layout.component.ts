@@ -9,7 +9,6 @@ import {AppHeaderComponent} from "../app-header/app-header.component";
     AppHeaderComponent
   ],
   templateUrl: './app-layout.component.html',
-  styleUrl: './app-layout.component.scss',
 })
 export class AppLayoutComponent {
   headerTitle = input.required<string>();

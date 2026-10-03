@@ -8,7 +8,6 @@ import { MoviePosterComponent } from '@org/mv-feature-movie-ui';
   selector: 'mv-feature-movie-details',
   imports: [RouterLink, DatePipe, MoviePosterComponent, DecimalPipe],
   templateUrl: './movie-details.component.html',
-  styleUrl: './movie-details.component.scss',
 })
 export class MovieDetailsComponent {
   movie: InputSignal<Movie | undefined> = input<Movie | undefined>();

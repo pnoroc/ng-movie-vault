@@ -1,3 +1,43 @@
-@use "tailwindcss";
-@use "./styles/main";
+@import 'tailwindcss';
 
+@theme {
+  --font-sans: Manrope, system-ui, sans-serif;
+  --font-display: Unbounded, sans-serif;
+
+  --color-page: #0c0e13;
+  --color-bar: #12151c;
+  --color-card: #161a22;
+  --color-line: #232937;
+  --color-outline: #5a6172;
+  --color-fg: #eceae6;
+  --color-muted: #9aa1b0;
+  --color-soft: #b4bac6;
+  --color-accent: #f2b544;
+  --color-accent-hover: #ffc65c;
+  --color-on-accent: #1a1305;
+  --color-poster: #34466b;
+
+  --container-page: 1440px;
+
+  /* The design uses one line-height (1.5) for all text sizes instead of Tailwind's per-size defaults. */
+  --text-xs--line-height: 1.5;
+  --text-sm--line-height: 1.5;
+  --text-base--line-height: 1.5;
+  --text-lg--line-height: 1.5;
+  --text-xl--line-height: 1.5;
+  --text-2xl--line-height: 1.5;
+}
+
+@layer base {
+  body {
+    @apply bg-page text-fg;
+  }
+}
+
+@utility btn-primary {
+  @apply h-14 cursor-pointer rounded-full bg-accent px-4.5 text-[15px] font-bold text-on-accent hover:bg-accent-hover md:px-8;
+}
+
+@utility btn-outline {
+  @apply h-10 cursor-pointer rounded-full border border-outline bg-transparent px-6 text-sm font-bold text-accent;
+}

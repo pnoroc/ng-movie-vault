@@ -7,7 +7,6 @@ import { MoviePosterComponent } from '../movie-poster/movie-poster.component';
   selector: 'mv-movies-list-card',
   imports: [DatePipe, MoviePosterComponent],
   templateUrl: './movies-list-card.component.html',
-  styleUrl: './movies-list-card.component.scss',
 })
 export class MoviesListCardComponent {
   movie: InputSignal<Movie> = input.required<Movie>();

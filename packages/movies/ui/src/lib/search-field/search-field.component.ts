@@ -1,11 +1,10 @@
 import { Component, input, output } from '@angular/core';
 
 @Component({
-  selector: 'mv-search-autocomplete',
-  templateUrl: './search-autocomplete.component.html',
-  styleUrls: ['./search-autocomplete.component.scss'],
+  selector: 'mv-search-field',
+  templateUrl: './search-field.component.html',
 })
-export class SearchAutocompleteComponent {
+export class SearchFieldComponent {
   /** Current search term, so the field shows it again when the page is re-created. */
   query = input('');
 

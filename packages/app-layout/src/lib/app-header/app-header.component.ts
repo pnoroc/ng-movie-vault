@@ -4,7 +4,6 @@ import {Component, input} from '@angular/core';
   selector: 'app-header',
   imports: [],
   templateUrl: './app-header.component.html',
-  styleUrl: './app-header.component.scss',
 })
 export class AppHeaderComponent {
   title = input.required<string>();

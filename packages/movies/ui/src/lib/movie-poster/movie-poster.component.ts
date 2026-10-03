@@ -8,7 +8,6 @@ import { RatingBadgeComponent } from '../rating-badge/rating-badge.component';
   selector: 'mv-movie-poster',
   templateUrl: './movie-poster.component.html',
   imports: [NgOptimizedImage, RatingBadgeComponent],
-  styleUrls: ['./movie-poster.component.scss'],
 })
 export class MoviePosterComponent {
   private readonly baseImageUrl = inject(TMDB_CONFIG).imageUrl;

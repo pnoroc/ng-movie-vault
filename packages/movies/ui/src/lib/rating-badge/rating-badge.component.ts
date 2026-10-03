@@ -5,7 +5,6 @@ import { DecimalPipe } from '@angular/common';
   selector: 'mv-rating-badge',
   templateUrl: './rating-badge.component.html',
   imports: [DecimalPipe],
-  styleUrls: ['./rating-badge.component.scss'],
 })
 export class RatingBadgeComponent {
   rating: InputSignal<number | undefined> = input<number | undefined>(0);

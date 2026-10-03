@@ -1,4 +1,4 @@
-<div class="poster" style="background:#34466b">
+<div class="relative aspect-2/3 max-h-[450px] rounded-xl bg-poster shadow-[0_24px_48px_rgba(0,0,0,0.45)]">
   @if (posterUrl()) {
     <img [ngSrc]="posterUrl()" fill [alt]="movie()?.title">
   }
