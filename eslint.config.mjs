@@ -21,20 +21,46 @@ export default [
           allow: ['^.*/eslint(\\.base)?\\.config\\.[cm]?[jt]s$'],
           depConstraints: [
             {
-              sourceTag: 'scope:shared',
-              onlyDependOnLibsWithTags: ['scope:shared'],
+              sourceTag: 'type:app',
+              onlyDependOnLibsWithTags: [
+                'type:shell',
+                'type:feature',
+                'type:data-access',
+                'type:ui',
+                'type:models',
+              ],
             },
             {
-              sourceTag: 'scope:shop',
-              onlyDependOnLibsWithTags: ['scope:shop', 'scope:shared'],
+              sourceTag: 'type:shell',
+              onlyDependOnLibsWithTags: ['type:ui', 'type:models'],
             },
             {
-              sourceTag: 'scope:api',
-              onlyDependOnLibsWithTags: ['scope:api', 'scope:shared'],
+              sourceTag: 'type:feature',
+              onlyDependOnLibsWithTags: [
+                'type:data-access',
+                'type:ui',
+                'type:models',
+              ],
             },
             {
-              sourceTag: 'type:data',
-              onlyDependOnLibsWithTags: ['type:data'],
+              sourceTag: 'type:data-access',
+              onlyDependOnLibsWithTags: ['type:models'],
+            },
+            {
+              sourceTag: 'type:ui',
+              onlyDependOnLibsWithTags: ['type:ui', 'type:models'],
+            },
+            {
+              sourceTag: 'type:models',
+              onlyDependOnLibsWithTags: ['type:models'],
+            },
+            {
+              sourceTag: 'scope:app',
+              onlyDependOnLibsWithTags: ['scope:app', 'scope:movies'],
+            },
+            {
+              sourceTag: 'scope:movies',
+              onlyDependOnLibsWithTags: ['scope:movies'],
             },
           ],
         },

@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { MovieDetailsComponent } from '@org/mv-feature-movie-details';
+import { MovieDetailsComponent } from './mv-feature-movie-details/movie-details.component';
 import { movieDetailsResolver } from '@org/mv-movies-data';
 
 export const featureMovieDetailsRoutes: Routes = [

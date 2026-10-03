@@ -1,7 +1,7 @@
 import { Movie } from '@org/movies-models';
 import { ActivatedRouteSnapshot, ResolveFn } from '@angular/router';
 import { inject } from '@angular/core';
-import { MoviesService } from '@org/mv-movies-data';
+import { MoviesService } from '../services/movies.service';
 import { Observable } from 'rxjs';
 
 export const movieDetailsResolver: ResolveFn<Movie> = (route: ActivatedRouteSnapshot): Observable<Movie> => {
@@ -12,5 +12,5 @@ export const movieDetailsResolver: ResolveFn<Movie> = (route: ActivatedRouteSnap
     throw new Error('Movie id is required');
   }
 
-  return moviesService.getMovieDetails(movieId) as Observable<Movie>;
+  return moviesService.getMovieDetails(movieId);
 };

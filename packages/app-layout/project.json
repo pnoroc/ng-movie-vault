@@ -4,7 +4,7 @@
   "sourceRoot": "packages/app-layout/src",
   "prefix": "lib",
   "projectType": "library",
-  "tags": ["type:shell"],
+  "tags": ["scope:app", "type:shell"],
   "targets": {
     "lint": {
       "executor": "@nx/eslint:lint"
