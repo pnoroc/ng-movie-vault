@@ -14,7 +14,6 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "paths": {
-      "@org/api/products": ["./packages/api/products/src/index.ts"],
       "@org/models": ["./packages/shared/models/src/index.ts"],
       "@org/mv-movies-data": ["./packages/movies/data/src/index.ts"],
       "@org/mv-feature-movies": [
