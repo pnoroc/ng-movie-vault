@@ -94,6 +94,29 @@ describe('MoviesService', () => {
     expect(service.loading()).toBe(false);
   });
 
+  it('should retry a failed page without losing the loaded movies', () => {
+    expectRequest('/movie/popular').flush(response([{ id: 1 }], 2));
+    service.loadMore();
+    expectRequest('/movie/popular').flush(null, { status: 500, statusText: 'Error' });
+
+    service.retry();
+
+    const req = expectRequest('/movie/popular');
+    expect(req.request.params.get('page')).toBe('2');
+    req.flush(response([{ id: 2 }], 2));
+    expect(service.movies()).toEqual([{ id: 1 }, { id: 2 }]);
+  });
+
+  it('should keep the current query when a search fails', () => {
+    expectRequest('/movie/popular').flush(response([{ id: 1 }]));
+
+    service.searchMovies('matrix');
+    expectRequest('/search/movie').flush(null, { status: 500, statusText: 'Error' });
+
+    expect(service.query()).toBe('');
+    expect(service.movies()).toEqual([{ id: 1 }]);
+  });
+
   it('should fetch movie details by id', () => {
     expectRequest('/movie/popular').flush(response([]));
     let movie: Movie | undefined;

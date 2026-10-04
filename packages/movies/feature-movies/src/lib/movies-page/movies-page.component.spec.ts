@@ -20,6 +20,7 @@ describe('MoviesPageComponent', () => {
     loadMore: vi.fn(),
     searchMovies: vi.fn(),
     getPopularMovies: vi.fn(),
+    retry: vi.fn(),
   };
 
   beforeEach(async () => {
@@ -71,14 +72,13 @@ describe('MoviesPageComponent', () => {
     expect(moviesService.getPopularMovies).toHaveBeenCalled();
   });
 
-  it('should show the error box and retry the current query', async () => {
-    moviesService.query.set('alien');
+  it('should show the error box and retry the failed request', async () => {
     moviesService.error.set('Failed');
     await fixture.whenStable();
 
     fixture.nativeElement.querySelector('mv-error-box button').click();
 
-    expect(moviesService.searchMovies).toHaveBeenCalledWith('alien');
+    expect(moviesService.retry).toHaveBeenCalled();
   });
 
   it('should navigate to the movie details', () => {

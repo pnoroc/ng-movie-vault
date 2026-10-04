@@ -40,6 +40,7 @@ export class MoviesService {
 
   private readonly state = signal<MoviesState>(initialState);
   private readonly requests = new Subject<MoviesRequest>();
+  private lastRequest: MoviesRequest = { query: '', page: 1 };
 
   readonly movies = computed(() => this.state().movies);
   readonly query = computed(() => this.state().query);
@@ -58,12 +59,13 @@ export class MoviesService {
   constructor() {
     this.requests
       .pipe(
-        tap(({ query }) =>
-          this.state.update((state) => ({ ...state, query, loading: true, error: null })),
-        ),
+        tap((request) => {
+          this.lastRequest = request;
+          this.state.update((state) => ({ ...state, loading: true, error: null }));
+        }),
         switchMap(({ query, page }) =>
           this.fetchMovies(query, page).pipe(
-            map((response) => ({ response, page })),
+            map((response) => ({ response, query, page })),
             catchError(() => {
               this.state.update((state) => ({
                 ...state,
@@ -75,9 +77,11 @@ export class MoviesService {
           ),
         ),
       )
-      .subscribe(({ response, page }) =>
+      // The query is only committed on success, so a failed search keeps the current results consistent.
+      .subscribe(({ response, query, page }) =>
         this.state.update((state) => ({
           ...state,
+          query,
           movies: page === 1 ? response.results : [...state.movies, ...response.results],
           page,
           totalPages: response.total_pages ?? page,
@@ -108,6 +112,11 @@ export class MoviesService {
     if (this.hasMore() && !this.loading()) {
       this.requests.next({ query: this.query(), page: this.state().page + 1 });
     }
+  }
+
+  /** Repeats the last request, e.g. a failed "load more" page, without resetting the loaded pages. */
+  retry(): void {
+    this.requests.next(this.lastRequest);
   }
 
   getMovieDetails(id: string): Observable<Movie> {

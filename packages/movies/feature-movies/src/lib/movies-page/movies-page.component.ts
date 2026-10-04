@@ -44,7 +44,7 @@ export class MoviesPageComponent {
   }
 
   retry(): void {
-    this.moviesService.searchMovies(this.moviesService.query());
+    this.moviesService.retry();
   }
 
   showMovieDetails(movie: Movie): void {
