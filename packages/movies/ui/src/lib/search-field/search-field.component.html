@@ -1,6 +1,6 @@
 <section class="flex gap-3 pt-10 pb-8">
   <div class="group relative flex h-14 min-w-0 flex-1 items-center gap-3 rounded-sm border border-outline px-4 focus-within:border-2 focus-within:border-accent focus-within:px-3.75">
-    <label for="q" class="absolute -top-2.25 left-3 bg-page px-1 text-xs text-muted group-focus-within:text-accent">Search Movie</label>
+    <label [for]="inputId" class="absolute -top-2.25 left-3 bg-page px-1 text-xs text-muted group-focus-within:text-accent">Search Movie</label>
     <svg class="text-muted" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
          stroke-linecap="round">
       <circle cx="11" cy="11" r="7"/>
@@ -8,7 +8,7 @@
     </svg>
     <input
       #searchInp
-      id="q"
+      [id]="inputId"
       type="search"
       autocomplete="off"
       class="min-w-0 flex-1 border-0 bg-transparent text-base text-fg outline-none"

@@ -15,13 +15,9 @@ export class MoviesListCardComponent {
 
   cardClick = output<void>();
 
-  genreNames = computed(() => {
-    if (this.movie()?.genre_ids?.length) {
-      return this.genres()?.find((genre) =>
-        this.movie().genre_ids?.includes(genre.id),
-      )?.name;
-    }
-
-    return '';
+  /** The movie's primary genre, i.e. the first of its genre ids. */
+  genreName = computed(() => {
+    const primaryGenreId = this.movie().genre_ids?.[0];
+    return this.genres()?.find((genre) => genre.id === primaryGenreId)?.name ?? '';
   });
 }

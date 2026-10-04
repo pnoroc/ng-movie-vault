@@ -29,7 +29,7 @@ describe('MoviesListCardComponent', () => {
 
   it('should return an empty genre name when the movie has no genres', () => {
     fixture.componentRef.setInput('movie', { id: 1, genre_ids: [] });
-    expect(component.genreNames()).toBe('');
+    expect(component.genreName()).toBe('');
   });
 
   it('should emit cardClick when clicked', () => {

@@ -13,7 +13,7 @@ export default defineConfig(() => ({
   //   plugins: () => [ nxViteTsPaths() ],
   // },
   test: {
-    name: 'mv-feature-movie-ui',
+    name: 'mv-movies-ui',
     watch: false,
     globals: true,
     environment: 'jsdom',

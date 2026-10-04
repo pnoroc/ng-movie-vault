@@ -1,8 +1,8 @@
 {
-  "name": "mv-feature-movie-ui",
+  "name": "mv-movies-ui",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "packages/movies/ui/src",
-  "prefix": "lib",
+  "prefix": "mv",
   "projectType": "library",
   "tags": ["scope:movies", "type:ui"],
   "targets": {

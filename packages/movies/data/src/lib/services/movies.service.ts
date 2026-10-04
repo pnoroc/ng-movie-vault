@@ -36,8 +36,7 @@ const initialState: MoviesState = {
 })
 export class MoviesService {
   private readonly http = inject(HttpClient);
-  private readonly TMDBbUrl = inject(TMDB_CONFIG).apiUrl;
-  private readonly apiUrl = `${this.TMDBbUrl}/3`;
+  private readonly apiUrl = `${inject(TMDB_CONFIG).apiUrl}/3`;
 
   private readonly state = signal<MoviesState>(initialState);
   private readonly requests = new Subject<MoviesRequest>();

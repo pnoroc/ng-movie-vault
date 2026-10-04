@@ -20,7 +20,6 @@ describe('tmdbInterceptor', () => {
     apiUrl: 'https://api.themoviedb.org/3',
     token: 'test-token',
     imageUrl: 'test.com',
-    apiKey: 'test-api-key',
   };
 
   beforeEach(() => {

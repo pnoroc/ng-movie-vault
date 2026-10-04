@@ -19,7 +19,6 @@ export const appConfig: ApplicationConfig = {
         token: environment.tmdbToken,
         apiUrl: environment.tmdbApiUrl,
         imageUrl: environment.tmdbImageUrl,
-        apiKey: environment.apiKey,
       },
     },
   ],

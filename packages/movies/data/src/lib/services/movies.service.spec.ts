@@ -30,7 +30,7 @@ describe('MoviesService', () => {
         provideHttpClientTesting(),
         {
           provide: TMDB_CONFIG,
-          useValue: { apiUrl: 'https://api.test', imageUrl: '', token: '', apiKey: '' },
+          useValue: { apiUrl: 'https://api.test', imageUrl: '', token: '' },
         },
       ],
     });

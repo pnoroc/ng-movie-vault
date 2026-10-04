@@ -22,7 +22,7 @@
       "@org/mv-feature-movie-details": [
         "./packages/movies/feature-movie-details/src/index.ts"
       ],
-      "@org/mv-feature-movie-ui": ["./packages/movies/ui/src/index.ts"],
+      "@org/mv-movies-ui": ["./packages/movies/ui/src/index.ts"],
       "@org/app-layout": ["./packages/app-layout/src/index.ts"],
       "@org/movies-models": ["./packages/movies/models/src/index.ts"],
       "@org/shared-components": ["./packages/shared/components/src/index.ts"]

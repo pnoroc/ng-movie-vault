@@ -10,7 +10,7 @@
 </div>
 
 @if (moviesService.error(); as error) {
-  <mv-error-box [error]="error" (retryCLick)="retry()"/>
+  <mv-error-box [error]="error" (retryClick)="retry()"/>
 } @else if (moviesService.isEmpty()) {
   <p class="py-16 text-center text-muted">
     @if (moviesService.query()) {

@@ -20,9 +20,9 @@ describe('ErrorBoxComponent', () => {
     expect(fixture.nativeElement.textContent).toContain('Something went wrong');
   });
 
-  it('should emit retryCLick when the button is clicked', () => {
+  it('should emit retryClick when the button is clicked', () => {
     const spy = vi.fn();
-    component.retryCLick.subscribe(spy);
+    component.retryClick.subscribe(spy);
 
     fixture.nativeElement.querySelector('button').click();
 

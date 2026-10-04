@@ -1,10 +1,15 @@
 import { Component, input, output } from '@angular/core';
 
+let nextId = 0;
+
 @Component({
   selector: 'mv-search-field',
   templateUrl: './search-field.component.html',
 })
 export class SearchFieldComponent {
+  /** Unique per instance, so several search fields never share an id. */
+  protected readonly inputId = `mv-search-field-${nextId++}`;
+
   /** Current search term, so the field shows it again when the page is re-created. */
   query = input('');
 

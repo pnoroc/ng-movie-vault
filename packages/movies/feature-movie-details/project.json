@@ -2,7 +2,7 @@
   "name": "mv-feature-movie-details",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "packages/movies/feature-movie-details/src",
-  "prefix": "lib",
+  "prefix": "mv",
   "projectType": "library",
   "tags": ["scope:movies", "type:feature"],
   "targets": {

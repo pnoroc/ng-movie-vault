@@ -2,7 +2,7 @@
   "name": "app-layout",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "packages/app-layout/src",
-  "prefix": "lib",
+  "prefix": "mv",
   "projectType": "library",
   "tags": ["scope:app", "type:shell"],
   "targets": {

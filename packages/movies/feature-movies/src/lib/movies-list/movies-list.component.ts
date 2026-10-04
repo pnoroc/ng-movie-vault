@@ -1,5 +1,5 @@
 import { Component, inject, input, InputSignal, output } from '@angular/core';
-import { MoviesListCardComponent } from '@org/mv-feature-movie-ui';
+import { MoviesListCardComponent } from '@org/mv-movies-ui';
 import { Movie } from '@org/movies-models';
 import { MoviesService, TMDB_CONFIG } from '@org/mv-movies-data';
 
@@ -11,7 +11,7 @@ import { MoviesService, TMDB_CONFIG } from '@org/mv-movies-data';
 export class MoviesListComponent {
   private readonly moviesService = inject(MoviesService);
 
-  movies: InputSignal<Movie[] | undefined> = input<Movie[] | undefined>([]);
+  movies: InputSignal<Movie[]> = input<Movie[]>([]);
   genres = this.moviesService.genres;
   imageUrl = inject(TMDB_CONFIG).imageUrl;
 

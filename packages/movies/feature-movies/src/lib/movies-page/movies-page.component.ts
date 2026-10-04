@@ -1,5 +1,5 @@
 import { Component, computed, inject } from '@angular/core';
-import { SearchFieldComponent } from '@org/mv-feature-movie-ui';
+import { SearchFieldComponent } from '@org/mv-movies-ui';
 import { MoviesListComponent } from '../movies-list/movies-list.component';
 import { MoviesService } from '@org/mv-movies-data';
 import { Movie } from '@org/movies-models';

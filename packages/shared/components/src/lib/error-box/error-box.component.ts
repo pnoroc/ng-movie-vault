@@ -6,5 +6,5 @@ import { Component, input, output } from '@angular/core';
 })
 export class ErrorBoxComponent {
   error = input<string | undefined>();
-  retryCLick = output<void>();
+  retryClick = output<void>();
 }
