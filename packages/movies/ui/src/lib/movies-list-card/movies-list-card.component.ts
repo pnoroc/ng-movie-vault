@@ -11,6 +11,7 @@ import { MoviePosterComponent } from '../movie-poster/movie-poster.component';
 export class MoviesListCardComponent {
   movie: InputSignal<Movie> = input.required<Movie>();
   genres: InputSignal<MovieGenre[] | undefined> = input<MovieGenre[]>();
+  imageUrl = input('');
 
   cardClick = output<void>();
 

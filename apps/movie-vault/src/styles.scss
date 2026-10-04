@@ -19,7 +19,6 @@
 
   --container-page: 1440px;
 
-  /* The design uses one line-height (1.5) for all text sizes instead of Tailwind's per-size defaults. */
   --text-xs--line-height: 1.5;
   --text-sm--line-height: 1.5;
   --text-base--line-height: 1.5;
@@ -40,4 +39,20 @@
 
 @utility btn-outline {
   @apply h-10 cursor-pointer rounded-full border border-outline bg-transparent px-6 text-sm font-bold text-accent;
+}
+
+@utility description-list {
+  @apply grid grid-cols-1 divide-y divide-line rounded-xl border border-line bg-card md:col-span-2 md:grid-cols-2 md:gap-3 md:divide-y-0 md:rounded-none md:border-0 md:bg-transparent lg:col-span-1 lg:max-w-[900px] lg:grid-cols-4 lg:gap-4;
+
+  > .description-list__item {
+    @apply flex justify-between gap-1.5 px-4 py-3.5 md:flex-col md:justify-start md:rounded-xl md:border md:border-line md:bg-card md:p-4;
+  }
+}
+
+@utility back-link {
+  @apply mt-4 mb-3 inline-flex h-11 items-center gap-2 rounded-full border border-outline bg-page/50 pr-5 pl-3.5 text-sm font-bold hover:border-fg md:mb-7 lg:h-10;
+}
+
+@utility back-link-mobile-only {
+  @apply mt-6 flex h-12 items-center justify-center gap-2 rounded-full border border-outline text-[15px] font-bold text-accent md:hidden cursor-pointer;
 }

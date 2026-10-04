@@ -1,0 +1,7 @@
+@use "tailwindcss";
+
+:host {
+  .details-wrap {
+    @apply grid grid-cols-1 gap-y-5 md:grid-cols-[260px_1fr] md:gap-x-8 md:gap-y-7 lg:grid-cols-[340px_1fr] lg:grid-rows-[auto_auto_1fr] lg:gap-x-14 lg:gap-y-8;
+  }
+}

@@ -1,5 +1,5 @@
 <div class="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-5 lg:grid-cols-4 lg:gap-6 xl:grid-cols-5">
   @for (movie of movies(); track movie.id) {
-    <mv-movies-list-card [movie]="movie" [genres]="genres()" (cardClick)="handleCardClick(movie)"/>
+    <mv-movies-list-card [movie]="movie" [genres]="genres()" [imageUrl]="imageUrl" (cardClick)="handleCardClick(movie)"/>
   }
 </div>

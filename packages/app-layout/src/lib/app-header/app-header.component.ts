@@ -1,7 +1,7 @@
 import {Component, input} from '@angular/core';
 
 @Component({
-  selector: 'app-header',
+  selector: 'mv-header',
   imports: [],
   templateUrl: './app-header.component.html',
 })

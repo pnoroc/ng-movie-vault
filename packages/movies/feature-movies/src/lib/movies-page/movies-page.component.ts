@@ -1,9 +1,13 @@
 import { Component, computed, inject } from '@angular/core';
-import { ErrorBoxComponent, LoadingPlaceholderComponent, SearchFieldComponent } from '@org/mv-feature-movie-ui';
+import { SearchFieldComponent } from '@org/mv-feature-movie-ui';
 import { MoviesListComponent } from '../movies-list/movies-list.component';
 import { MoviesService } from '@org/mv-movies-data';
 import { Movie } from '@org/movies-models';
 import { Router } from '@angular/router';
+import {
+  ErrorBoxComponent,
+  LoadingPlaceholderComponent,
+} from '@org/shared-components';
 
 @Component({
   selector: 'mv-movies-page',

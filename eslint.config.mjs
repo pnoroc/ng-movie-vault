@@ -56,11 +56,15 @@ export default [
             },
             {
               sourceTag: 'scope:app',
-              onlyDependOnLibsWithTags: ['scope:app', 'scope:movies'],
+              onlyDependOnLibsWithTags: ['scope:app', 'scope:movies', 'scope:shared'],
             },
             {
               sourceTag: 'scope:movies',
-              onlyDependOnLibsWithTags: ['scope:movies'],
+              onlyDependOnLibsWithTags: ['scope:movies', 'scope:shared'],
+            },
+            {
+              sourceTag: 'scope:shared',
+              onlyDependOnLibsWithTags: ['scope:shared'],
             },
           ],
         },

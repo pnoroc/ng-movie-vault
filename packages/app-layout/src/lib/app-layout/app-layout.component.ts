@@ -3,7 +3,7 @@ import {RouterOutlet} from "@angular/router";
 import {AppHeaderComponent} from "../app-header/app-header.component";
 
 @Component({
-  selector: 'app-layout',
+  selector: 'mv-layout',
   imports: [
     RouterOutlet,
     AppHeaderComponent

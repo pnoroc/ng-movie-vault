@@ -1,8 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppHeaderComponent } from './app-header.component';
 
-describe('AppLayout', () => {
-  let component: AppHeaderComponent;
+describe('AppHeaderComponent', () => {
   let fixture: ComponentFixture<AppHeaderComponent>;
 
   beforeEach(async () => {
@@ -11,11 +10,11 @@ describe('AppLayout', () => {
     }).compileComponents();
 
     fixture = TestBed.createComponent(AppHeaderComponent);
-    component = fixture.componentInstance;
+    fixture.componentRef.setInput('title', 'Test Title');
     await fixture.whenStable();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should render the title', () => {
+    expect(fixture.nativeElement.textContent).toContain('Test Title');
   });
 });

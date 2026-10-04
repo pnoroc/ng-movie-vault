@@ -1,7 +1,7 @@
 import { Component, inject, input, InputSignal, output } from '@angular/core';
 import { MoviesListCardComponent } from '@org/mv-feature-movie-ui';
 import { Movie } from '@org/movies-models';
-import { MoviesService } from '@org/mv-movies-data';
+import { MoviesService, TMDB_CONFIG } from '@org/mv-movies-data';
 
 @Component({
   selector: 'mv-movies-list',
@@ -13,6 +13,7 @@ export class MoviesListComponent {
 
   movies: InputSignal<Movie[] | undefined> = input<Movie[] | undefined>([]);
   genres = this.moviesService.genres;
+  imageUrl = inject(TMDB_CONFIG).imageUrl;
 
   cardClick = output<Movie>();
 

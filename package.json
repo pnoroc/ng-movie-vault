@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "nx serve --project movie-vault"
+    "start": "nx serve --project movie-vault",
+    "test": "nx run-many --target=test --projects=packages/**/*",
+    "lint": "nx run-many --target=lint --projects=packages/**/*"
   },
   "private": true,
   "dependencies": {

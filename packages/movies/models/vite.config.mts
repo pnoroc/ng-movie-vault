@@ -14,6 +14,7 @@ export default defineConfig(() => ({
   // },
   test: {
     name: 'movies-models',
+    passWithNoTests: true,
     watch: false,
     globals: true,
     environment: 'jsdom',
